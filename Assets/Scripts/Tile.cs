@@ -5,25 +5,25 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     public GameObject[] dots;
-<<<<<<< HEAD
+
     void Start()
-=======
+
     private void Start()
     {
         Initialize();
     }
     private void Update()
->>>>>>> developer
+
     {
         Initialize();  
     }
-<<<<<<< HEAD
+
 
     
     void Update()
-=======
+
     void Initialize()
->>>>>>> developer
+
     {
         int dotTOUse = Random.Range(0, dots.Length);
         GameObject dot = Instantiate(dots[dotTOUse], transform.position, Quaternion.identity);
