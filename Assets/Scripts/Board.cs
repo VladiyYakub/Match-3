@@ -5,16 +5,16 @@ using UnityEngine;
 public class Board : MonoBehaviour
 {
     public int x_width;
-
     public int y_height;
-
     public GameObject tilePrefab;
-
+    public GameObject[] dots;
     private Tile[,] allTiles;
+    public GameObject[,] allDots;
 
     void Start()
     {
         allTiles = new Tile[x_width, y_height];
+        allDots = new GameObject[x_width, y_height];
         SetUp();
     }
 
@@ -28,6 +28,11 @@ public class Board : MonoBehaviour
                 GameObject backgroundTile = Instantiate(tilePrefab, tempPosition, Quaternion.identity) as GameObject;
                 backgroundTile.transform.parent = transform;
                 backgroundTile.name = "( " + i + ", " + j + " )";
+                int dotTOUse = Random.Range(0, dots.Length);
+                GameObject dot = Instantiate(dots[dotTOUse], tempPosition, Quaternion.identity);
+                dot.transform.parent = transform;
+                dot.name = "( " + i + ", " + j + " )";
+                allDots[i, j] = dot;
 
             }
         }
