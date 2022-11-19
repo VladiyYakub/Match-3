@@ -5,17 +5,16 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     
-
     void Start()
-
     {
         Initialize();
     }
-    void Initialize()
-
+    void Update()
     {
         
     }
-  
+    void Initialize()
+    {
+        
+    }
 }
-

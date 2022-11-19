@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &427200344
+--- !u!1 &150848517
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,43 +131,31 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 427200347}
-  - component: {fileID: 427200346}
-  - component: {fileID: 427200345}
+  - component: {fileID: 150848520}
+  - component: {fileID: 150848519}
+  - component: {fileID: 150848518}
   m_Layer: 0
-  m_Name: Main 2D Camera
+  m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &427200345
-MonoBehaviour:
+--- !u!81 &150848518
+AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 427200344}
+  m_GameObject: {fileID: 150848517}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AssetsPPU: 100
-  m_RefResolutionX: 320
-  m_RefResolutionY: 180
-  m_UpscaleRT: 0
-  m_PixelSnapping: 1
-  m_CropFrameX: 0
-  m_CropFrameY: 0
-  m_StretchFill: 0
---- !u!20 &427200346
+--- !u!20 &150848519
 Camera:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 427200344}
+  m_GameObject: {fileID: 150848517}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -188,7 +176,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7.0074897
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -204,15 +192,15 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!4 &427200347
+--- !u!4 &150848520
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 427200344}
+  m_GameObject: {fileID: 150848517}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.46, y: 3.01, z: -5}
+  m_LocalPosition: {x: 3.02, y: 4.62, z: -18.86391}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -248,9 +236,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d6897943e01e4468799d3649cd0fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x_width: 4
-  y_height: 7
-  tilePrefab: {fileID: 8377413968943114570, guid: e878bd4a8a154944bb2895f5d9acc047, type: 3}
+  x_widht: 7
+  y_height: 10
+  tilePrefarb: {fileID: 3614987312338302161, guid: e878bd4a8a154944bb2895f5d9acc047, type: 3}
+  candies:
+  - {fileID: 5744880790897741514, guid: 16040075008b7f54c86ace558f7f9f79, type: 3}
+  - {fileID: 140633052636044197, guid: 4455de5c030f6da408c0e7d54544c5a0, type: 3}
+  - {fileID: 6823284532980051233, guid: 2ff9b862bc5adb84eac2fb588f2a6638, type: 3}
+  - {fileID: 5267094540604819998, guid: 2a00ecf7fef918e4490a5249bc49020b, type: 3}
+  - {fileID: 7839427467372049139, guid: fa0753fad740c134887483da7523168a, type: 3}
+  - {fileID: 6305419668160401899, guid: 1aef0ee0ebef0d949a751fbbd6a642f6, type: 3}
 --- !u!212 &643030176
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -310,8 +305,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 643030174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4900001, y: 3.0003, z: 11.549999}
-  m_LocalScale: {x: 1.2461871, y: 1.2544358, z: 1}
+  m_LocalPosition: {x: 2.9236, y: 5.02, z: 11.549999}
+  m_LocalScale: {x: 2.0663571, y: 1.8789091, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
