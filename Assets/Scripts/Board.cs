@@ -10,7 +10,8 @@ public class Board : MonoBehaviour
     public GameObject tilePrefarb;
     public GameObject[] candies;
     private Tile[,] allTiles;
-    public GameObject[,] allCandies;
+    private GameObject[,] allCandies;
+    // Use this for instalization
     void Start()
     {
         allTiles = new Tile[x_widht, y_height];
@@ -27,13 +28,11 @@ public class Board : MonoBehaviour
                 GameObject tile = Instantiate(tilePrefarb, tempPosition, Quaternion.identity) as GameObject;
                 tile.transform.parent = transform;
                 tile.name = "( " + i + ", " + j + " )";
-                int cnadyToUse = Random.Range(0, candies.Length);
-                GameObject candy = Instantiate(candies[cnadyToUse], tempPosition, Quaternion.identity);
+                int candyToUse = Random.Range(0, candies.Length);
+                GameObject candy = Instantiate(candies[candyToUse], tempPosition, Quaternion.identity);
                 candy.transform.parent = transform;
                 candy.name = "( " + i + ", " + j + " )";
                 allCandies[i,j] = candy;
-
-
             }
         }
     }

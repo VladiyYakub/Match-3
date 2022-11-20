@@ -6,8 +6,8 @@ public class Candy : MonoBehaviour
 {
     private Vector2 firstTouchPosition;
     private Vector2 finalTouchPosition;
-    public float swipeAngele = 0;   
-    
+    public float swipeAngle = 0;
+
     void Start()
     {
         
@@ -21,18 +21,17 @@ public class Candy : MonoBehaviour
     private void OnMouseDown()
     {
         firstTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //Debug.Log(firstTouchPosition);
     }
 
     private void OnMouseUp()
     {
-        finalTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        finalTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); ;
         CalculateAngle();
     }
-        
-   void CalculateAngle()
-   {
-       swipeAngele = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
-       Debug.Log(swipeAngele);
-   }
+
+    void CalculateAngle()
+    {
+        swipeAngle = Mathf.Atan2(finalTouchPosition.y - finalTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
+        Debug.Log(swipeAngle);
+    }
 }
