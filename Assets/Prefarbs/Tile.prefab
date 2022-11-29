@@ -95,10 +95,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d76265c44731ec4d98f186810c8b78a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  candies:
-  - {fileID: 5744880790897741514, guid: 16040075008b7f54c86ace558f7f9f79, type: 3}
-  - {fileID: 140633052636044197, guid: 4455de5c030f6da408c0e7d54544c5a0, type: 3}
-  - {fileID: 6823284532980051233, guid: 2ff9b862bc5adb84eac2fb588f2a6638, type: 3}
-  - {fileID: 5267094540604819998, guid: 2a00ecf7fef918e4490a5249bc49020b, type: 3}
-  - {fileID: 7839427467372049139, guid: fa0753fad740c134887483da7523168a, type: 3}
-  - {fileID: 6305419668160401899, guid: 1aef0ee0ebef0d949a751fbbd6a642f6, type: 3}

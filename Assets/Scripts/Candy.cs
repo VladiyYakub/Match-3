@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Candy : MonoBehaviour
@@ -8,15 +6,6 @@ public class Candy : MonoBehaviour
     private Vector2 finalTouchPosition;
     public float swipeAngle = 0;
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
 
     private void OnMouseDown()
     {
