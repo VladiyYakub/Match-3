@@ -6,8 +6,9 @@ public class Board : MonoBehaviour
     public int y_height;
     public GameObject tilePrefarb;
     public GameObject[] candies;
-    private Tile[,] allTiles;
-    private GameObject[,] allCandies;
+    public Tile[,] allTiles;
+    public GameObject[,] allCandies;
+    public Camera cam;
 
 
     void Start()
@@ -23,25 +24,17 @@ public class Board : MonoBehaviour
         {
             for (int j = 0; j < y_height; j++)
             {
-                Vector2 tempPosition = new Vector2(i, j);
-                GameObject tile = Instantiate(tilePrefarb, tempPosition, Quaternion.identity);
-
-                //// It's better: 
-                // tile.transform.SetParent(transform);
-                //// Or you can add parent throw instantiate: 
-                // GameObject tile = Instantiate(tilePrefarb, tempPosition, Quaternion.identity, transform);
-                tile.transform.parent = transform;
-
-                //// You may simplifie naming:
-                // tile.name = $"( {i}, {j} )";
-                tile.name = "( " + i + ", " + j + " )";
-
+                Vector2 tempPosition = new Vector2(i, j);                
+                GameObject tile = Instantiate(tilePrefarb, tempPosition, Quaternion.identity, transform);                
+                tile.transform.parent = this.transform;                
+                tile.name = $"( {i}, {j} )";
                 int candyToUse = Random.Range(0, candies.Length);
                 GameObject candy = Instantiate(candies[candyToUse], tempPosition, Quaternion.identity);
-                // Same
-                candy.transform.parent = transform;
-                candy.name = "( " + i + ", " + j + " )";
-                allCandies[i, j] = candy;
+                candy.GetComponent<Candy>().Init(cam);                               
+                candy.transform.parent = this.transform;
+                candy.name = $"( {i}, {j} )";
+                allCandies[i, j] = candy;              
+
             }
         }
     }

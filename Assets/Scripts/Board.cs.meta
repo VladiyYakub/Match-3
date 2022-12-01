@@ -3,7 +3,9 @@ guid: 08d6897943e01e4468799d3649cd0fb9
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - tilePrefarb: {fileID: 3614987312338302161, guid: e878bd4a8a154944bb2895f5d9acc047, type: 3}
+  - cam: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
