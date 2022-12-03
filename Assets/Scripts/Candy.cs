@@ -16,14 +16,11 @@ public class Candy : MonoBehaviour
 
     private Camera _cam;
 
-    public void Init(Camera cam)
+    public void Init(Camera cam, Board board)
     {
         _cam = cam;
-    }
 
-    void Start()
-    {
-        board = FindObjectOfType<Board>();
+        this.board = board;
         targetX = (int)transform.position.x;
         targetY = (int)transform.position.y;
         row = targetY;
@@ -76,7 +73,7 @@ public class Candy : MonoBehaviour
 
     void CalculateAngle()
     {
-        swipeAngle = Mathf.Atan2(finalTouchPosition.y - finalTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
+        swipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
         Debug.Log(swipeAngle);
         MovePieces();
 
@@ -92,21 +89,24 @@ public class Candy : MonoBehaviour
             otherCandy.GetComponent<Candy>().column -= 1;
             column += 1;
 
-        } else if (swipeAngle > 45 && swipeAngle <= 135 && row < board.y_height)
+        } 
+        else if (swipeAngle > 45 && swipeAngle <= 135 && row < board.y_height)
         {
             //Up Swipe
             otherCandy = board.allCandies[column, row + 1];
             otherCandy.GetComponent<Candy>().row -= 1;
             row += 1;
 
-        }else if (swipeAngle > 135 ||  swipeAngle <= -135 && column > 0)
+        }
+        else if (swipeAngle > 135 ||  swipeAngle <= -135 && column > 0)
         {
             //Left Swipe
             otherCandy = board.allCandies[column - 1, row];
             otherCandy.GetComponent<Candy>().column +=1;
             column -= 1;
 
-        } else if (swipeAngle < -45 && swipeAngle >= -135 && row >0)
+        } 
+        else if (swipeAngle < -45 && swipeAngle >= -135 && row >0)
         {
             //Down Swipe
             otherCandy = board.allCandies[column, row - 1];
