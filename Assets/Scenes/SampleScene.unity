@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x_widht: 7
   y_height: 10
+  offSet: 0
   tilePrefarb: {fileID: 3614987312338302161, guid: e878bd4a8a154944bb2895f5d9acc047, type: 3}
   candies:
   - {fileID: 5744880790897741514, guid: 16040075008b7f54c86ace558f7f9f79, type: 3}

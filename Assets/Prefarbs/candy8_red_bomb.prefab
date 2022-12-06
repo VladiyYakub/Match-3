@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6977921970029021927}
   m_Layer: 0
   m_Name: candy8_red_bomb
-  m_TagString: Untagged
+  m_TagString: candy8_red_bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,4 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 808d4c31908a9b9438b475b580595ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swipeAngele: 0
+  column: 0
+  row: 0
+  targetX: 0
+  targetY: 0
+  isMatched: 0
+  swipeAngle: 0

@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - candy8_blue_bomb
+  - candy8_green_bomb
+  - candy8_orange_bomb
+  - candy8_purple_bomb
+  - candy8_red_bomb
+  - candy8_yellow_bomb
   layers:
   - Default
   - TransparentFX
