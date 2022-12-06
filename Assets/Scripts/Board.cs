@@ -11,6 +11,10 @@ public class Board : MonoBehaviour
     public GameObject[] candies;
     public Tile[,] allTiles;
     public GameObject[,] allCandies;
+    [Space]
+    public float tilesZOffset;
+    public float candiesZOffset;
+    [Space]
 
     public Camera cam;
     private int candyToUse;
@@ -28,9 +32,10 @@ public class Board : MonoBehaviour
         {
             for (int j = 0; j < y_height; j++)
             {
-                Vector2 spawnPosition = new Vector2(i, j + offSet);
-                GameObject tile = SpawnTile(spawnPosition);
-                GameObject candy = SpawnCandy(spawnPosition);
+                Vector3 tileSpawnPosition = new Vector3(i, j + offSet, tilesZOffset);
+                Vector3 candySpawnPosition = new Vector3(i, j + offSet, candiesZOffset);
+                GameObject tile = SpawnTile(tileSpawnPosition);
+                GameObject candy = SpawnCandy(candySpawnPosition);
                 allCandies[i, j] = candy;
                 int maxIterations = 0;
                 while(MatchesAt(i,j, candies[candyToUse]) && maxIterations < 100)
@@ -46,7 +51,7 @@ public class Board : MonoBehaviour
         }
     }
 
-    private GameObject SpawnTile(Vector2 tilePosition)
+    private GameObject SpawnTile(Vector3 tilePosition)
     {
         GameObject tile = Instantiate(tilePrefarb, tilePosition, Quaternion.identity);
         tile.transform.SetParent(transform);
@@ -54,7 +59,7 @@ public class Board : MonoBehaviour
         return tile;
     }
 
-    private GameObject SpawnCandy(Vector2 candyPosition)
+    private GameObject SpawnCandy(Vector3 candyPosition)
     {
         int candyToUse = Random.Range(0, candies.Length);
         GameObject candy = Instantiate(candies[candyToUse], candyPosition, Quaternion.identity);
@@ -147,11 +152,12 @@ public class Board : MonoBehaviour
         {
             for (int j = 0; j < y_height; j++)
             {
-                if (allCandies[i,j] == null)
+                if (allCandies[i, j] == null)
                 {
-                    Vector2 tempPosition = new Vector2(i, j + offSet);
-                    int dotToUse = Random.Range(0, candies.Length);
-                    GameObject piece = Instantiate(candies[candyToUse], tempPosition, Quaternion.identity);
+                    Vector3 candySpawnPosition = new Vector3(i, j + offSet, candiesZOffset);
+
+                    GameObject piece = SpawnCandy(candySpawnPosition);
+
                     allCandies[i, j] = piece;
                     piece.GetComponent<Candy>().row = j;
                     piece.GetComponent<Candy>().column = i;
@@ -164,9 +170,9 @@ public class Board : MonoBehaviour
     {
         for (int i = 0; i < x_widht; i++)
         {
-            for(int j = 0; j < y_height; i++)
+            for(int j = 0; j < y_height; j++)
             {
-                if (allCandies[i,j]!= null)
+                if (allCandies[i, j] != null)
                 {
                     if (allCandies[i, j].GetComponent<Candy>().isMatched)
                     {

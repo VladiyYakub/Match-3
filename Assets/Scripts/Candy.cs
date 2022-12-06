@@ -16,21 +16,15 @@ public class Candy : MonoBehaviour
     private GameObject otherCandy;
     private Vector2 firstTouchPosition;
     private Vector2 finalTouchPosition;
-    private Vector2 tempPosition;
+    private Vector3 tempPosition;
     public float swipeAngle = 0;
     public float swipeResist = 1f;
-    private Camera _cam;    
+    private Camera _cam;
 
     public void Init(Camera cam, Board board)
     {
         _cam = cam;
         this.board = board;
-        //targetX = (int)transform.position.x;
-        //targetY = (int)transform.position.y;
-        //row = targetY;
-        //column = targetX;
-        //previousRow = row;
-        //previousColumn = column;
     }
 
     void Update()
@@ -44,59 +38,40 @@ public class Candy : MonoBehaviour
 
         targetX = column;
         targetY = row;
-        if (Mathf.Abs(targetX - transform.position.x) > .1)
+        if (Mathf.Abs(targetX - transform.position.x) > .1f)
         {
             //MOve Towards the target
-            tempPosition = new Vector2(targetX, transform.position.y);
-            transform.position = Vector2.Lerp(transform.position, tempPosition, .6f);
-            if (board.allCandies[column,row] != this.gameObject)
-            {
-                board.allCandies[column, row] = this.gameObject;
-            }
+            tempPosition = new Vector3(targetX, transform.position.y, transform.position.z);
+            MoveTowardTarget();
         }       
         else
         {
             //Directly set the position
-            tempPosition = new Vector2(targetX, transform.position.y);
+            tempPosition = new Vector3(targetX, transform.position.y, transform.position.z);
             transform.position = tempPosition;
             board.allCandies[column, row] = this.gameObject;
         }
-        if (Mathf.Abs(targetY - transform.position.y) > .1)
+        if (Mathf.Abs(targetY - transform.position.y) > .1f)
         {
             //Move Towards the target
-            tempPosition = new Vector2(transform.position.x, targetY);
-            transform.position = Vector2.Lerp(transform.position, tempPosition, .6f);
-            if (board.allCandies[column, row] != this.gameObject)
-            {
-                board.allCandies[column, row] = this.gameObject;
-            }
+            tempPosition = new Vector3(transform.position.x, targetY, transform.position.z);
+            MoveTowardTarget();
         }
         else
         {
             //Directly set the position
-            tempPosition = new Vector2(transform.position.x, targetY);
+            tempPosition = new Vector3(transform.position.x, targetY, transform.position.z);
             transform.position = tempPosition;           
         }
     }
 
-    public IEnumerator CheckMoveCo()
+    private void MoveTowardTarget()
     {
-        yield return new WaitForSeconds(.5f);
-        if(otherCandy != null)
+        transform.position = Vector3.Lerp(transform.position, tempPosition, .6f);
+        if (board.allCandies[column, row] != this.gameObject)
         {
-            if(!isMatched && !otherCandy.GetComponent<Candy>().isMatched)
-            {
-                otherCandy.GetComponent<Candy>().row = row;
-                otherCandy.GetComponent<Candy>().column = column;
-                row = previousRow;
-                column = previousColumn;
-            }
-            else
-            {
-                board.DestroyMatches();
-            }
-            otherCandy = null;
-        }       
+            board.allCandies[column, row] = this.gameObject;
+        }
     }
 
     private void OnMouseDown()
@@ -190,6 +165,26 @@ public class Candy : MonoBehaviour
                     isMatched = true;
                 }
             }
+        }
+    }
+
+    private IEnumerator CheckMoveCo()
+    {
+        yield return new WaitForSeconds(.5f);
+        if (otherCandy != null)
+        {
+            if (!isMatched && !otherCandy.GetComponent<Candy>().isMatched)
+            {
+                otherCandy.GetComponent<Candy>().row = row;
+                otherCandy.GetComponent<Candy>().column = column;
+                row = previousRow;
+                column = previousColumn;
+            }
+            else
+            {
+                board.DestroyMatches();
+            }
+            otherCandy = null;
         }
     }
 }
