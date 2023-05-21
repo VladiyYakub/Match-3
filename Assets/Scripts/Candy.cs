@@ -6,10 +6,10 @@ public class Candy : MonoBehaviour
     [Header("Board Variables")]
     public int column;
     public int row;
-    public int previousColumn;
-    public int previousRow;
-    public int targetX;
-    public int targetY;
+    [SerializeField] private int previousColumn;
+    [SerializeField] private int previousRow;
+    [SerializeField] private int targetX;
+    [SerializeField] private int targetY;
     public bool isMatched = false;
 
     private Board board;
