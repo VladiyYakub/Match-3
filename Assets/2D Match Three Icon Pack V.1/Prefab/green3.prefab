@@ -257,6 +257,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4178521152324420}
   - component: {fileID: 95822004111639312}
+  - component: {fileID: -258286419687429203}
+  - component: {fileID: -5764644341579744885}
   m_Layer: 0
   m_Name: green3
   m_TagString: Untagged
@@ -273,7 +275,7 @@ Transform:
   m_GameObject: {fileID: 1435991198818794}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.0001, y: 0.0001, z: 0.1}
   m_Children:
   - {fileID: 4501283631873894}
   - {fileID: 4354279838288250}
@@ -300,6 +302,43 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-258286419687429203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435991198818794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 808d4c31908a9b9438b475b580595ae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  column: 1
+  row: 1
+  previousColumn: 1
+  previousRow: 1
+  targetX: 1
+  targetY: 1
+  isMatched: 0
+  swipeAngle: 1
+  swipeResist: 1
+--- !u!58 &-5764644341579744885
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435991198818794}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &1645587567520740
 GameObject:
   m_ObjectHideFlags: 0
